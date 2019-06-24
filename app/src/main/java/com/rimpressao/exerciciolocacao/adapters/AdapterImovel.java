@@ -39,6 +39,7 @@ public class AdapterImovel extends RecyclerView.Adapter<ImovelViewHolder> {
         holder.quantidadeQuarto.setText(imovel.getQuantidadeQuarto());
         holder.telefoneContato.setText(imovel.getTelefoneContato());
         holder.valor.setText(imovel.getValor());
+        holder.imagem.setImageBitmap(imovel.getImagem());
     }
 
     @Override

@@ -1,12 +1,16 @@
 package com.rimpressao.exerciciolocacao.repositorio.modelo;
 
+import android.graphics.Bitmap;
+import android.media.Image;
+
 public class Imovel {
+    private Bitmap imagem;
    private String nome, descricao, localizacao, quantidadeQuarto,
     vagasGaragem, telefoneContato, valor, tipo;
 
     public Imovel(String nome, String descricao, String localizacao,
                   String quantidadeQuarto, String vagasGaragem, String telefoneContato,
-                  String valor, String tipo) {
+                  String valor, String tipo, Bitmap imagem) {
         this.nome = nome;
         this.descricao = descricao;
         this.localizacao = localizacao;
@@ -15,6 +19,11 @@ public class Imovel {
         this.telefoneContato = telefoneContato;
         this.valor = valor;
         this.tipo = tipo;
+        this.imagem = imagem;
+    }
+
+    public Bitmap getImagem() {
+        return imagem;
     }
 
     public String getNome() {
