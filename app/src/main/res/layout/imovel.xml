@@ -9,9 +9,9 @@
         android:id="@+id/imovel_imagem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/imovel"
-        android:layout_marginBottom="16dp"/>
+        android:src="@mipmap/imovel" />
 
     <TextView
         android:id="@+id/imovel_titulo"
@@ -20,7 +20,7 @@
         android:text="Nome do imóvel"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="28sp"
+        android:textSize="32sp"
         android:textStyle="bold" />
 
     <TextView
@@ -30,14 +30,14 @@
         android:text="Aqui vem a descrição"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
 
     <LinearLayout
-        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="28dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_location_on" />
 
             <TextView
                 android:id="@+id/imovel_localizacao"
@@ -64,11 +64,11 @@
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:textAlignment="textEnd"
                 android:text="CASA"
-                android:textStyle="bold"
-                android:textColor="#187429"
-                android:textSize="28dp" />
+                android:textAlignment="textEnd"
+                android:textColor="#478D52"
+                android:textSize="28dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -81,7 +81,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="ro" />
+                android:src="@drawable/ic_airline_seat_individual_suite" />
 
             <TextView
                 android:id="@+id/imovel_quartos"
@@ -102,7 +102,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_directions_car" />
 
             <TextView
                 android:id="@+id/imovel_vagas_garagem"
@@ -123,7 +123,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_local_phone" />
 
             <TextView
                 android:id="@+id/imovel_telefone"
@@ -136,14 +136,15 @@
         </LinearLayout>
 
         <TextView
-            android:layout_marginTop="16dp"
-            android:gravity="end"
-            android:layout_weight="1"
+            android:id="@+id/imovel_valor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="36dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="R$ 10000.00"
             android:textColor="#000"
-            android:text="R$ 10000.00"/>
+            android:textSize="36dp" />
 
     </LinearLayout>
 
