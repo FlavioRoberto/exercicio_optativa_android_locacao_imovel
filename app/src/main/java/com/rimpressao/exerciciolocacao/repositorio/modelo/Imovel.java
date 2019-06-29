@@ -5,12 +5,13 @@ import android.media.Image;
 
 public class Imovel {
     private Bitmap imagem;
-   private String nome, descricao, localizacao, quantidadeQuarto,
-    vagasGaragem, telefoneContato, valor, tipo;
+    private String nome, descricao, localizacao, telefoneContato, tipo;
+    private int quantidadeQuarto, vagasGaragem;
+    private Double valor;
 
     public Imovel(String nome, String descricao, String localizacao,
-                  String quantidadeQuarto, String vagasGaragem, String telefoneContato,
-                  String valor, String tipo, Bitmap imagem) {
+                  int quantidadeQuarto, int vagasGaragem, String telefoneContato,
+                  Double valor, String tipo, Bitmap imagem) {
         this.nome = nome;
         this.descricao = descricao;
         this.localizacao = localizacao;
@@ -38,11 +39,11 @@ public class Imovel {
         return localizacao;
     }
 
-    public String getQuantidadeQuarto() {
+    public int getQuantidadeQuarto() {
         return quantidadeQuarto;
     }
 
-    public String getVagasGaragem() {
+    public int getVagasGaragem() {
         return vagasGaragem;
     }
 
@@ -50,7 +51,7 @@ public class Imovel {
         return telefoneContato;
     }
 
-    public String getValor() {
+    public Double getValor() {
         return valor;
     }
 

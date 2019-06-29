@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.rimpressao.exerciciolocacao.R;
+import com.rimpressao.exerciciolocacao.helpers.DinheiroHelper;
 import com.rimpressao.exerciciolocacao.repositorio.modelo.Imovel;
 import java.util.ArrayList;
 
@@ -36,14 +37,15 @@ public class AdapterImovel extends RecyclerView.Adapter<ImovelViewHolder> {
         holder.descricao.setText(imovel.getDescricao());
         holder.localizacao.setText(imovel.getLocalizacao());
         holder.nome.setText(imovel.getNome());
-        holder.quantidadeQuarto.setText(imovel.getQuantidadeQuarto());
+        holder.quantidadeQuarto.setText(String.valueOf(imovel.getQuantidadeQuarto())+" quartos");
         holder.telefoneContato.setText(imovel.getTelefoneContato());
-        holder.valor.setText(imovel.getValor());
+        holder.valor.setText(DinheiroHelper.doubleParaDinheiro(imovel.getValor()));
         holder.imagem.setImageBitmap(imovel.getImagem());
+        holder.vagasGaragem.setText(imovel.getVagasGaragem()+" vagas na garagem");
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listaImoveis.size();
     }
 }
