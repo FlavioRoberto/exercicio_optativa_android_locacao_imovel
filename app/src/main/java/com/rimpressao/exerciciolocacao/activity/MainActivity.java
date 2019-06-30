@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.rimpressao.exerciciolocacao.R;
 import com.rimpressao.exerciciolocacao.adapters.AdapterImovel;
 import com.rimpressao.exerciciolocacao.repositorio.modelo.Imovel;
+import com.rimpressao.exerciciolocacao.repositorio.modelo.ImovelFiltros;
 import com.rimpressao.exerciciolocacao.servicos.ImovelServico;
 
 import java.io.Serializable;
@@ -38,11 +39,25 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         editText.setOnEditorActionListener(editorActionListener);
 
         carregarRecyclerViewImovel();
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            ImovelFiltros filtros = (ImovelFiltros) bundle.get("filtros");
+            listarPor(filtros);
+        }
     }
 
     public void chamaFiltros(View view) {
         Intent intent = new Intent(MainActivity.this, FiltroActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void carregarRecyclerViewImovel() {
@@ -75,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         final String texto = editText.getText().toString();
 
         if (editText.getText() != null) {
-            listarPor(new Imovel(editText.getText().toString()));
+            listarPorNome(editText.getText().toString());
         }
     }
 
@@ -85,24 +100,43 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         return false;
     }
 
-    private void listarPor(Imovel imovel) {
+
+    private void listarPorNome(String nome) {
+        listaImoveis.clear();
+
+        for (Imovel item : servicoImovel.listarImoveis()) {
+            if (compararCamposStrig(item.getNome(), nome))
+                listaImoveis.add(item);
+        }
+
+        adapterImovel.notifyDataSetChanged();
+    }
+
+    private void listarPor(ImovelFiltros imovel) {
         if (imovel == null)
             return;
 
         listaImoveis.clear();
 
         for (Imovel item : servicoImovel.listarImoveis()) {
+            boolean adicionar = true;
 
-            if(compararCamposStrig(item.getNome(), imovel.getNome()))
-                listaImoveis.add(item);
+            if (!compararCamposStrig(item.getTipo(), imovel.getTipoImovel()))
+                adicionar = false;
 
-            if (compararCamposStrig(item.getTipo(), imovel.getTipo()))
-                listaImoveis.add(item);
+            if (!compararCamposStrig(item.getLocalizacao(), imovel.getCidades()))
+                adicionar = false;
 
-            if (compararCamposStrig(item.getLocalizacao(), imovel.getLocalizacao()))
-                listaImoveis.add(item);
+            if (item.getQuantidadeQuarto() != imovel.getQuantidadeQuarto())
+                adicionar = false;
 
-            if (item.getQuantidadeQuarto() == imovel.getQuantidadeQuarto())
+            if(imovel.isPiscina() && !compararCamposStrig(item.getDescricao(),"piscina"))
+                adicionar = false;
+
+            if(imovel.isArcondicionado() && !compararCamposStrig(item.getDescricao(),"arcondicionado"))
+                adicionar = false;
+
+            if(adicionar)
                 listaImoveis.add(item);
         }
 

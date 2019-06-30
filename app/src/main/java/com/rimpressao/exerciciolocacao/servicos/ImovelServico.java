@@ -33,6 +33,16 @@ public class ImovelServico {
                 3, 2, "(37) 99140-6667", 230000.00,
                 "CASA", ((BitmapDrawable) casaDrawable).getBitmap()));
 
+        imoveis.add(new Imovel("Imovel 3", "Casa com terreiro e arcondicionado, excelenete para quem tem crianças e pets.",
+                "Divinópolis",
+                4, 1, "(37) 99140-6667", 230000.00,
+                "CASA", ((BitmapDrawable) casaDrawable).getBitmap()));
+
+        imoveis.add(new Imovel("Imovel 4", "Apartamento com piscina, excelenete para quem tem crianças e pets.",
+                "Belo Horizonte",
+                1, 2, "(37) 99140-6667", 230000.00,
+                "APARTAMENTO", ((BitmapDrawable) casaDrawable).getBitmap()));
+
         return imoveis;
     }
 
