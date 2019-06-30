@@ -22,6 +22,8 @@ public class FiltroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filtro);
 
+
+
         radioGroup = (RadioGroup) findViewById(R.id.tipo);
         spinner = (Spinner) findViewById(R.id.spinnerCidades);
 

@@ -50,7 +50,7 @@
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="#00000000"
                     android:onClick="limpaFiltros"
                     android:text="Limpar" />
@@ -239,20 +239,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPreferencias" />
 
-        <Button
-            android:id="@+id/btnFiltrar"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="520dp"
             android:layout_marginEnd="8dp"
-            android:background="#00000000"
-            android:text="Filtrar"
-            android:onClick="filtrar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/acoes" />
+            app:layout_constraintTop_toBottomOf="@+id/checkboxPiscina"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
+
+                <Button
+                    android:id="@+id/btnFiltrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="#00000000"
+                    android:onClick="filtrar"
+                    android:text="Filtrar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/acoes" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
 
