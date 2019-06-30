@@ -68,19 +68,41 @@ public class MainActivity extends AppCompatActivity {
     private void realizaPesquisa() {
 
         listaImoveis.clear();
+        final String texto = editText.getText().toString();
+
+        if (editText.getText() != null) {
+            listarPor(new Imovel(editText.getText().toString()));
+        }
+    }
+
+    private boolean compararCamposStrig(String campo1, String campo2) {
+        if (campo1 != null && campo2 != null)
+            return campo1.toLowerCase().contains(campo2.toLowerCase());
+        return false;
+    }
+
+    private void listarPor(Imovel imovel) {
+        if (imovel == null)
+            return;
+
+        listaImoveis.clear();
 
         for (Imovel item : servicoImovel.listarImoveis()) {
-            final String texto = editText.getText().toString();
 
-            if (editText.getText() != null) {
-                if (item != null && item.getNome().toLowerCase().contains(texto.toLowerCase())) {
-                    listaImoveis.add(item);
-                }
-            } else {
-                listaImoveis = servicoImovel.listarImoveis();
-            }
+            if(compararCamposStrig(item.getNome(), imovel.getNome()))
+                listaImoveis.add(item);
+
+            if (compararCamposStrig(item.getTipo(), imovel.getTipo()))
+                listaImoveis.add(item);
+
+            if (compararCamposStrig(item.getLocalizacao(), imovel.getLocalizacao()))
+                listaImoveis.add(item);
+
+            if (item.getQuantidadeQuarto() == imovel.getQuantidadeQuarto())
+                listaImoveis.add(item);
         }
-        
+
         adapterImovel.notifyDataSetChanged();
+
     }
 }
