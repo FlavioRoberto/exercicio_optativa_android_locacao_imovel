@@ -40,8 +40,6 @@
                             android:hint="Pesquisar imóvel"
                             android:backgroundTint="@color/colorPrimary"
                             android:inputType="text"
-                            android:focusedByDefault="true"
-                            android:focusableInTouchMode="false"
                             android:imeOptions="actionSearch"
                             />
                     </android.support.v7.widget.CardView>
