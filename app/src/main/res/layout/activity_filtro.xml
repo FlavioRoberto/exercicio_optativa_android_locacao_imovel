@@ -42,20 +42,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="end">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00000000"
-                    android:onClick="limpaFiltros"
-                    android:text="Limpar" />
-
-            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -194,7 +180,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="Selecione suas preferências"
             android:textAlignment="center"
@@ -211,7 +197,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="8dp"
             android:buttonTint="@color/colorPrimary"
             android:text="Imóvel com ar condicionado"

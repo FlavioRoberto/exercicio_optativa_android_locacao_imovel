@@ -59,11 +59,6 @@ public class FiltroActivity extends AppCompatActivity {
             }
         });
 
-
-
-        radioGroup = (RadioGroup) findViewById(R.id.tipo);
-        spinner = (Spinner) findViewById(R.id.spinnerCidades);
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -84,6 +79,8 @@ public class FiltroActivity extends AppCompatActivity {
     }
 
     public void fechar(View view) {
+        Intent intent = new Intent(FiltroActivity.this, MainActivity.class);
+        startActivity(intent);
         finish();
     }
 

@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
 
         editText = (EditText) findViewById(R.id.pesquisa);
         editText.setOnEditorActionListener(editorActionListener);
