@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         semImoveis = findViewById(R.id.semImoveis);
         editText.setOnEditorActionListener(editorActionListener);
 
+        semImoveis.setVisibility(View.GONE);
         carregarRecyclerViewImovel();
-
 
     }
 
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         if(listaImoveis.size() <= 0)
             semImoveis.setVisibility(View.VISIBLE);
         else
-            semImoveis.setVisibility(View.INVISIBLE);
+            semImoveis.setVisibility(View.GONE);
     }
 
     @Override
