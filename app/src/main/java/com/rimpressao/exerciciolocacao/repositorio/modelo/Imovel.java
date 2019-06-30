@@ -9,6 +9,10 @@ public class Imovel {
     private int quantidadeQuarto, vagasGaragem;
     private Double valor;
 
+    public Imovel(String nome){
+        this.nome = nome;
+    }
+
     public Imovel(String nome, String descricao, String localizacao,
                   int quantidadeQuarto, int vagasGaragem, String telefoneContato,
                   Double valor, String tipo, Bitmap imagem) {
