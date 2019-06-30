@@ -42,8 +42,6 @@ public class AdapterImovel extends RecyclerView.Adapter<ImovelViewHolder> {
         holder.valor.setText(DinheiroHelper.doubleParaDinheiro(imovel.getValor()));
         holder.imagem.setImageBitmap(imovel.getImagem());
         holder.vagasGaragem.setText(imovel.getVagasGaragem()+" vagas na garagem");
-        holder.tipo.setText(imovel.getTipo());
-
     }
 
     @Override

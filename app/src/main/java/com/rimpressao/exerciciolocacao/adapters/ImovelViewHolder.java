@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.rimpressao.exerciciolocacao.R;
@@ -13,6 +14,7 @@ public class ImovelViewHolder extends RecyclerView.ViewHolder {
     final ImageView imagem;
     final TextView nome, descricao, localizacao, quantidadeQuarto,
                    vagasGaragem, telefoneContato, valor, tipo;
+    final LinearLayout semImoveis;
 
     public ImovelViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -25,5 +27,6 @@ public class ImovelViewHolder extends RecyclerView.ViewHolder {
         telefoneContato = itemView.findViewById(R.id.imovel_telefone);
         valor = itemView.findViewById(R.id.imovel_valor);
         tipo = itemView.findViewById(R.id.imovel_tipo);
+        semImoveis = itemView.findViewById(R.id.semImoveis);
     }
 }

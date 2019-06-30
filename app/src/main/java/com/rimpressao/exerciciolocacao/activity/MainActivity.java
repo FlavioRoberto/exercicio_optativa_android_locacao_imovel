@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.rimpressao.exerciciolocacao.R;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     private EditText editText;
     private AdapterImovel adapterImovel;
     private ArrayList<Imovel> listaImoveis;
+    private LinearLayout semImoveis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +37,19 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_main);
 
         editText = (EditText) findViewById(R.id.pesquisa);
+        semImoveis = findViewById(R.id.semImoveis);
         editText.setOnEditorActionListener(editorActionListener);
 
         carregarRecyclerViewImovel();
 
 
+    }
+
+    private void exibirMensagemSemImoveis(){
+        if(listaImoveis.size() <= 0)
+            semImoveis.setVisibility(View.VISIBLE);
+        else
+            semImoveis.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -109,6 +119,9 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
 
         adapterImovel.notifyDataSetChanged();
+
+        exibirMensagemSemImoveis();
+
     }
 
     private void listarPor(ImovelFiltros imovel) {
@@ -140,6 +153,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
 
         adapterImovel.notifyDataSetChanged();
+
+        exibirMensagemSemImoveis();
 
     }
 }

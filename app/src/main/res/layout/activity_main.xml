@@ -3,69 +3,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#E9E9E9"
     android:padding="8dp"
-    android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1">
 
-                <LinearLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_weight="1">
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="7dp">
 
-                    <android.support.v7.widget.CardView
+                    <EditText
+                        android:id="@+id/pesquisa"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="7dp"
-                        android:layout_margin="10dp"
-                        app:cardCornerRadius="5dp">
-
-                        <EditText
-                            android:id="@+id/pesquisa"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:hint="Pesquisar imóvel"
-                            android:backgroundTint="@color/colorPrimary"
-                            android:inputType="text"
-                            android:focusedByDefault="true"
-                            android:focusableInTouchMode="false"
-                            android:imeOptions="actionSearch"
-                            />
-                    </android.support.v7.widget.CardView>
-
-                </LinearLayout>
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:background="#00000000"
-                    android:onClick="chamaFiltros"
-                    android:src="@drawable/ic_action_filter" />
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:focusableInTouchMode="false"
+                        android:focusedByDefault="true"
+                        android:hint="Pesquisar imóvel"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text" />
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/lista_imoveis"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                ></android.support.v7.widget.RecyclerView>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#00000000"
+                android:onClick="chamaFiltros"
+                android:src="@drawable/ic_action_filter" />
 
         </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lista_imoveis"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"></android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:id="@+id/semImoveis"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                android:text="Nenhum imóvel encontrado :("
+                android:textAlignment="center"
+                android:textSize="35sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </ScrollView>
