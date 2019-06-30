@@ -59,12 +59,10 @@ public class FiltroActivity extends AppCompatActivity {
             }
         });
 
-        chkPiscina.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                imovelFiltros.setPiscina(b);
-            }
-        });
+
+
+        radioGroup = (RadioGroup) findViewById(R.id.tipo);
+        spinner = (Spinner) findViewById(R.id.spinnerCidades);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
