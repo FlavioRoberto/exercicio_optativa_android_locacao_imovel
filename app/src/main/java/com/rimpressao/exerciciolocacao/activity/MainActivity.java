@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private ImovelServico servicoImovel;
     private RecyclerView rvImoveis;
     private EditText editText;
-
+    private AdapterImovel adapterImovel;
     private ArrayList<Imovel> listaImoveis;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private void carregarRecyclerViewImovel() {
         servicoImovel = new ImovelServico(getApplicationContext());
         listaImoveis = servicoImovel.listarImoveis();
-        AdapterImovel adapterImovel = new AdapterImovel(listaImoveis,getApplicationContext());
+        adapterImovel = new AdapterImovel(listaImoveis, getApplicationContext());
         rvImoveis = (RecyclerView) findViewById(R.id.lista_imoveis);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         rvImoveis.setLayoutManager(layoutManager);
@@ -65,19 +66,23 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void realizaPesquisa() {
-        for (Imovel item: listaImoveis) {
+
+        listaImoveis.clear();
+        adapterImovel.notifyDataSetChanged();
+
+        for (Imovel item : servicoImovel.listarImoveis()) {
             final String texto = editText.getText().toString();
 
-            Log.d("ITEM", texto);
-
             if (editText.getText() != null) {
-                if (item != null && !item.getNome().contains(texto)) {
-                    listaImoveis.remove(item);
+                if (item != null && item.getNome().toLowerCase().contains(texto.toLowerCase())) {
+                    listaImoveis.add(item);
+                    adapterImovel.notifyDataSetChanged();
                 }
-            }
-            else {
+            } else {
                 listaImoveis = servicoImovel.listarImoveis();
+                adapterImovel.notifyDataSetChanged();
             }
         }
+
     }
 }
