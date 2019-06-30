@@ -18,15 +18,15 @@ import com.rimpressao.exerciciolocacao.adapters.AdapterImovel;
 import com.rimpressao.exerciciolocacao.repositorio.modelo.Imovel;
 import com.rimpressao.exerciciolocacao.servicos.ImovelServico;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Serializable {
     private ImovelServico servicoImovel;
     private RecyclerView rvImoveis;
     private EditText editText;
     private AdapterImovel adapterImovel;
     private ArrayList<Imovel> listaImoveis;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

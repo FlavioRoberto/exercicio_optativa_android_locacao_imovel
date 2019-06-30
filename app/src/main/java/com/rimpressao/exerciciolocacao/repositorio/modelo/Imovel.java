@@ -9,6 +9,10 @@ public class Imovel {
     private int quantidadeQuarto, vagasGaragem;
     private Double valor;
 
+    public Imovel() {
+
+    }
+
     public Imovel(String nome){
         this.nome = nome;
     }
@@ -61,5 +65,41 @@ public class Imovel {
 
     public String getTipo() {
         return tipo;
+    }
+
+    public void setImagem(Bitmap imagem) {
+        this.imagem = imagem;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public void setTelefoneContato(String telefoneContato) {
+        this.telefoneContato = telefoneContato;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setQuantidadeQuarto(int quantidadeQuarto) {
+        this.quantidadeQuarto = quantidadeQuarto;
+    }
+
+    public void setVagasGaragem(int vagasGaragem) {
+        this.vagasGaragem = vagasGaragem;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
     }
 }
