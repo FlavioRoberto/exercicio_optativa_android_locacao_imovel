@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
     private void realizaPesquisa() {
 
         listaImoveis.clear();
-        adapterImovel.notifyDataSetChanged();
 
         for (Imovel item : servicoImovel.listarImoveis()) {
             final String texto = editText.getText().toString();
@@ -76,13 +75,12 @@ public class MainActivity extends AppCompatActivity {
             if (editText.getText() != null) {
                 if (item != null && item.getNome().toLowerCase().contains(texto.toLowerCase())) {
                     listaImoveis.add(item);
-                    adapterImovel.notifyDataSetChanged();
                 }
             } else {
                 listaImoveis = servicoImovel.listarImoveis();
-                adapterImovel.notifyDataSetChanged();
             }
         }
-
+        
+        adapterImovel.notifyDataSetChanged();
     }
 }
