@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ExercicioLocacao</string>
+
+    <string-array name="cidades">
+
+        <item>Belo Horizonte</item>
+        <item>Divinópolis</item>
+        <item>Pará de Minas</item>
+        <item>Ouro Preto</item>
+        <item>João Molevade</item>
+
+    </string-array>
 </resources>

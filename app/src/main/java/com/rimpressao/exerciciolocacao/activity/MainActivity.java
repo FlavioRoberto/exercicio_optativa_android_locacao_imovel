@@ -1,17 +1,17 @@
 package com.rimpressao.exerciciolocacao.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.rimpressao.exerciciolocacao.R;
 import com.rimpressao.exerciciolocacao.adapters.AdapterImovel;
@@ -32,13 +32,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
         editText = (EditText) findViewById(R.id.pesquisa);
         editText.setOnEditorActionListener(editorActionListener);
 
-        getSupportActionBar().hide();
-
         carregarRecyclerViewImovel();
+    }
+
+    public void chamaFiltros(View view) {
+        Intent intent = new Intent(MainActivity.this, FiltroActivity.class);
+        startActivity(intent);
     }
 
     private void carregarRecyclerViewImovel() {
